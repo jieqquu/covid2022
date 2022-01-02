@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>後新冠特別門診管理系統-垃圾桶</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css"
+    />
+    <link rel="stylesheet" href="base.css" />
+    <link rel="stylesheet" href="info-trash.css" />
+  </head>
+
+  <style>
+    /* record */
+    .record {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      justify-content: space-between;
+      width: 80%;
+      margin: 1.5rem auto 0 auto;
+    }
+
+    .record .title {
+      font-size: 20px;
+      font-weight: 400;
+      margin: 0 0 0.6rem 0;
+      padding-left: 1rem;
+    }
+  </style>
+
+  <body class="container">
+    <header class="my-header container">
+      <div>
+        <h1 class="title">後新冠特別門診管理系統</h1>
+      </div>
+      <nav style="margin-left: auto">
+        <a href="select.html">首頁</a>
+        <a href="/trash.html">垃圾桶</a>
+        <a href="/logout.html">登出</a>
+      </nav>
+    </header>
+
+    <div class="search-bar">
+      <input
+        type="text"
+        placeholder="可搜尋病歷號、身份證字號、姓名、就診日期"
+      />
+    </div>
+
+    <div class="record">
+      <table id="info-table" class="display my-data-table" width="100%"></table>
+    </div>
+
+    <script src="info-trash.js"></script>
+    <script>
+      function genTableFuncHTML(data, type, row, meta) {
+        return `
+          <div class='func' data-pid='${row[0]}'>
+            <div class='item'>
+              <img src="./img/eye.svg" width="22" height="22"/>
+              <button class='detail'>查看</button>
+            </div>
+            <div class='item'>
+              <img src="./img/recover.svg" width="14" height="14"/>
+              <button class='recover'>還原</button>
+            </div>
+          </div>
+        `;
+      }
+
+      $(document).ready(function () {
+        $("#info-table").DataTable({
+          data,
+          columns: [
+            { title: "病歷號" },
+            { title: "姓名" },
+            { title: "就診日期" },
+            {
+              title: "註記",
+              orderable: false,
+            },
+            {
+              title: "功能",
+              render: genTableFuncHTML,
+              orderable: false,
+            },
+          ],
+          // searching: false,
+          paging: false,
+          info: false,
+        });
+      });
+    </script>
+  </body>
+</html>

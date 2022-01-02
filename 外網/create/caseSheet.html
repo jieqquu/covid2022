@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="./caseSheetStyle.css">
+    <title>CREATE</title>
+  </head>
+  <body>
+    <script type="text/javascript" src="./navcreate.js"></script>
+    
+    <script type="text/javascript" >
+      document.write(navbar)
+    </script>  
+
+
+<main  class="container" id="m">        
+    <h3 class="mb-4">基本資料</h3>
+    <div  class="col-8 " >
+        <!--姓名-->
+        <div class="row mb-4 ">
+            <label  align="right" for="inputName" class="col-5 g-0  labelVAlign required"  >姓名</label>
+            <div class="col-7">
+                <input type="text" class="form-control" id="inputName" required>
+            </div>
+        </div>
+
+        <!--就診日期-->
+        <div class="row mb-4 ">
+            <label  align="right" for="dateofExamination" class="col-5 g-0  labelVAlign required" >就診日期</label>
+            <div class="col-7">
+                <input type="date" class="form-control" id="dateofExamination" >
+            </div>
+        </div>
+        
+        <!--性別-->
+        <div class="row mb-4">
+            <label align="right" for="gender" class="col-5 g-0 labelVAlign required">性別</label>
+            <div class="col-7 labelVAlign"> 
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="gender" id="genderM" value="1">
+                    <label class="form-check-label" for="genderM">男</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="gender" id="genderF" value="0">
+                    <label class="form-check-label" for="genderF">女</label>
+                </div>
+            </div>
+        </div>
+
+        <!--出生年月日-->
+        <div class="row mb-4 ">
+            <label  align="right" for="inputBirth" class="col-5 g-0  labelVAlign required" >出生年月日</label>
+            <div class="col-7">
+                <input type="date" class="form-control" id="inputBirth" >
+            </div>
+        </div>
+
+            <!--信箱-->
+            <div class="row mb-4 ">
+            <label  align="right" for="inputEmail" class="col-5 g-0  labelVAlign required" >信箱</label>
+            <div class="col-7">
+                <input type="email" class="form-control" id="inputEmail" placeholder="表單提交後將寄送驗證碼至此信箱">
+            </div>
+        </div>
+        
+        <!--身分證-->
+        <!--做自動大寫第一個字-->
+        <div class="row mb-4 ">
+            <label  align="right" for="inputID" class="col-5 g-0  labelVAlign required" >身分證</label>
+            <div class="col-7">
+                <input type="text" class="form-control" id="inputID" minlength="10" maxlength="10">
+            </div>
+        </div>
+
+        <!--病歷號-->
+        <div class="row mb-4 ">
+            <label  align="right" for="inputMedicalHisID" class="col-5 g-0  labelVAlign" placeholder="不知道可以不用填寫">病歷號</label>
+            <div class="col-7">
+                <input type="text" class="form-control" id="inputMedicalHisID" minlength="10" maxlength="10">
+            </div>
+        </div>
+    </div>
+    
+    
+    <h3 class="mb-4">Covid19相關資料</h3>
+    <div  class="col-8 " >
+    <!--是否曾為COVID確診個案-->
+    <div class="row mb-4">
+        <label align="right" for="isConfirmedCase" class="col-5 g-0 labelVAlign required">是否曾為COVID確診個案</label>
+        <div class="col-7 labelVAlign">
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="isConfirmedCase" id="notConfirmed" value="0">
+                <label class="form-check-label" for="notConfirmed">否</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="isConfirmedCase" id="Confirmed" value="1">
+                <label class="form-check-label" for="Confirmed">是</label>
+            </div>
+        </div>
+    </div>
+
+    <!--確診日期-->
+    <div class="row mb-4 ">
+        <label  align="right" for="inputConfirmedDate" class="col-5 g-0  labelVAlign required" >確診日期</label>
+        <div class="col-7">
+            <input type="date" class="form-control" id="inputConfirmedDate" >
+        </div>
+    </div>
+
+    <!--COVID治療地點-->
+    <div class="row mb-4">
+        <label align="right" for="treatLocation" class="col-5 g-0 labelVAlign required">COVID治療地點</label>
+        <div class="col-7 ">
+            <select class="form-select form-select" >
+                <option selected>同時符合多項，選擇數字較小者</option>
+                <option value="1">醫院</option>
+                <option value="2">防疫旅館</option>
+                <option value="3">家裡</option>
+            </select>
+        </div>     
+    </div>
+
+    <!--COVID治療期間 最嚴重的氧氣使用經驗-->
+    <div class="row mb-4">
+        <label align="right" for="oxygen" class="col-5 g-0">
+            <div class="required">COVID治療期間</div>
+            <div>最嚴重的氧氣使用經驗</div>
+        </label>
+        <div class="col-7 " name="oxygen">
+            <select class="form-select form-select" >
+            <option></option>
+            <option value="0">無</option>
+            <option value="1">鼻導管</option>
+            <option value="2">呼吸面罩</option>
+            <option value="3">高流量鼻導管</option>
+            <option value="4">氣管內管插管</option>
+            </select>
+        </div>     
+    </div>
+    
+    
+    <!--COVID治療期間是否入住加護病房-->
+    <div class="row mb-4">
+        <label align="right" for="ICU" class="col-5 g-0">
+            <div class="required">COVID治療期間</div>
+            <div>是否入住加護病房</div>
+    
+        </label>
+        <div class="col-7 labelVAlign"> 
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="ICU" id="ICUF" value="0">
+                <label class="form-check-label" for="ICUF">否</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="ICU" id="ICUT" value="1">
+                <label class="form-check-label" for="ICUT">是</label>
+            </div>
+        </div>
+    </div>
+
+    
+    <!--出院日期-->
+    <div class="row mb-4 ">
+        <label  align="right" for="inputDischargeDate" class="col-5 g-0" >
+            <div>出院日期</div>    
+            <div>(如在家治療，請以解隔日期作紀錄)</div>
+        </label>
+        <div class="col-7">
+            <input type="date" class="form-control" id="inputDischargeDate" >
+        </div>
+    </div>
+
+    <!--COVID之後是否有因為COVID定期回診-->
+    <div class="row mb-4">
+        <label align="right" for="followUpAppointment" class="col-5 g-0">
+            <div class="required">COVID之後</div>
+            <div>是否有因為COVID定期回診</div>
+    
+        </label>
+        <div class="col-7 labelVAlign"> 
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="followUpAppointment" id="appointmentF" value="0">
+                <label class="form-check-label" for="appointmentF">否</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="followUpAppointment" id="appointmentT" value="1">
+                <label class="form-check-label" for="appointmentT">是</label>
+            </div>
+        </div>
+    </div>
+    
+    <!--如有因COVID定期回診請填回診科別-->
+    <div class="row mb-4">
+        <label align="right" for="division" class="col-5 g-0">
+            <div class="required">如有因COVID定期回診</div>
+            <div>請填回診科別</div>
+        </label>
+        <div class="col-7 " name="division">
+            <select class="form-select form-select" >
+                <option></option>
+                <option value="1">胸腔科</option>
+                <option value="2">感染科</option>
+                <option value="3">復健科</option>
+                <option value="4">神經科</option>
+                <option value="5">精神科</option>
+                <option value="6">其他</option>
+            </select>
+        </div>     
+    </div>                
+    </div> 
+</main>
+
+<!--做不是機器人-->
+<div align="right" class="col-5">
+    <button  type="submit" class="btn btn-primary ">提交</button>
+</div>
+
+    <script src="./caseSheet.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  </body>
+</html>

@@ -1,0 +1,82 @@
+:root {
+  --default-bg-color: #f4f4ea;
+}
+
+html {
+  padding: 3rem 1rem;
+  box-sizing: border-box;
+  background-color: var(--default-bg-color);
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+button {
+  font-size: 16px;
+}
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+}
+
+@media (min-width: 640px) {
+  .container {
+    max-width: 640px;
+  }
+}
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+}
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1024px;
+  }
+}
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+  }
+}
+
+h2.title {
+  font-size: 20px;
+  font-weight: 400;
+}
+
+/* header css */
+.my-header {
+  display: flex;
+  align-items: flex-end;
+  line-height: 1;
+  padding: 0 0 12px 10px;
+  border-bottom: 1px solid black;
+}
+
+.my-header .title {
+  margin: 0;
+  color: #5e574d;
+}
+
+.my-header nav a {
+  color: #9b978d;
+  text-decoration: none;
+  padding: 0 6px;
+}
+
+.my-header nav a:not(:first-child) {
+  border-left: 1px solid #9b978d;
+}
+
+.my-header nav a:hover {
+  color: #1b1b1a;
+}
+
+nav {
+  margin-left: auto;
+}

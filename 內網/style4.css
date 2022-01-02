@@ -1,0 +1,28 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Noto Sans TC", sans-serif;
+  }
+  h1 {
+    position: absolute;
+    top: 2rem;
+    padding-left: 2rem;
+    letter-spacing: 4px;
+    color: #5E574E;
+  }
+  .link-top {
+    position: absolute;
+    top: 6rem;
+    left: 2rem;
+  
+    height: 1px;
+    border-top: solid #5E574E 1px;
+  }
+
+  .login {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }

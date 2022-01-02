@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>後新冠特別門診管理系統-收案紀錄表</title>
+    <link
+      rel="stylesheet"
+      href="https://jqueryvalidation.org/files/demo/site-demos.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+    <script src="http://static.runoob.com/assets/jquery-validation-1.14.0/lib/jquery.js"></script>
+    <script src="http://static.runoob.com/assets/jquery-validation-1.14.0/dist/jquery.validate.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css"
+    />
+    <link rel="stylesheet" href="base.css" />
+    <link rel="stylesheet" href="info-trash.css" />
+
+    <script>
+      function send() {
+          $.ajax({
+      url: 'https://1e01-2001-b011-4007-19c5-5092-66f9-5015-4a08.ngrok.io/api/createcase',
+      data: $("form").serialize(),
+      processData: false,
+      type: 'POST',
+      success: function ( data ) {
+      alert( data );
+   }
+  });
+      }
+      </script>
+  </head>
+
+  <style>
+    .form-title {
+      display: inline-block;
+      margin: 1.5rem 0;
+      line-height: 1;
+      background: linear-gradient(to top, #c4d5d8 42%, transparent 0%);
+    }
+
+    form {
+      width: min-content;
+      margin: 0;
+    }
+
+    form > .body {
+      display: grid;
+      grid-template-columns: max-content minmax(max-content, 1fr);
+      gap: 1.1rem 1rem;
+      align-items: center;
+    }
+
+    form > .body > .title {
+      text-align: right;
+    }
+
+    form > .body > div {
+      position: relative;
+    }
+
+    form > .body .desc {
+      position: absolute;
+      width: max-content;
+      margin-left: 2rem;
+
+      right: -20px; /*最邊邊留20px空白*/
+      transform: translateX(100%);
+      color: #8f8f8d;
+    }
+
+    form > .btn-wrapper {
+      display: flex;
+      margin-top: 1.5rem;
+      gap: 1.5rem;
+      justify-content: center;
+    }
+
+    form > .btn-wrapper button {
+      width: 8rem;
+      height: 3rem;
+      border: 1px solid transparent;
+      border-radius: 16px;
+      color: white;
+      cursor: pointer;
+      font-size: 18px;
+    }
+
+    form > .btn-wrapper button.submit {
+      background-color: #94b2b5;
+    }
+
+    form > .btn-wrapper button.cancel {
+      background-color: #e4a083;
+    }
+    .error {
+      color: red;
+      margin-left: 5px;
+    }
+    
+
+
+    
+  </style>
+
+  <body class="container">
+    <header class="my-header container">
+      <div>
+        <h1 class="title">後新冠特別門診管理系統</h1>
+      </div>
+      <nav style="margin-left: auto">
+        <a href="select.html">首頁</a>
+        <a href="trash.html">垃圾桶</a>
+        <a href="/logout.html">登出</a>
+      </nav>
+    </header>
+
+    <h2 class="form-title">
+      臺北市立聯合醫院 新冠肺炎門診個案評估表 收案紀錄單
+    </h2>
+    <form id="myform" action="">
+      <div class="body">
+        <div class="title">就診日期</div>
+        <div>
+          <input id="date" name="date" type="date" />
+        </div>
+
+        <div class="title">姓名</div>
+        <div>
+          <input type="text" name="name" id="name" />
+        </div>
+
+        <div class="title">出生年月日</div>
+        <div>
+          <input id="birth_date" name="birth_date" type="date" />
+        </div>
+
+        <div class="title">E-mail</div>
+        <div>
+          <input type="email" name="mail" id="mail" />
+        </div>
+
+        <div class="title">性別</div>
+        <div>
+          <label class="radio" for="sex1">
+            <input type="radio" name="sex" id="sex1" value="1" />
+            男
+          </label>
+
+          <label class="radio" for="sex0">
+            <input type="radio" name="sex" id="sex0" value="0" />
+            女
+          </label>
+
+          <label class="radio" for="sex2">
+            <input type="radio" name="sex" id="sex2" value="2" />
+            其他
+          </label>
+        </div>
+
+        <div class="title">病歷號</div>
+        <div>
+          <input
+            type="text"
+            name="medical_record_number"
+            id="medical_record_number"
+          />
+        </div>
+
+        <div class="title">身份證字號</div>
+        <div>
+          <input type="text" name="id_number" id="id_number" />
+        </div>
+
+        <div class="title">是否曾為COVID卻診個案</div>
+        <div>
+          <label class="radio" for="infect_covid1">
+            <input
+              type="radio"
+              name="infect_covid"
+              id="infect_covid1"
+              value="y"
+            />
+            是
+          </label>
+          <label class="radio" for="infect_covid0">
+            <input
+              type="radio"
+              name="infect_covid"
+              id="infect_covid0"
+              value="n"
+            />
+            否
+          </label>
+          <span class="desc">注意是否可能為焦慮，擔心自己罹病的個案</span>
+        </div>
+
+        <div class="title">確診日期</div>
+        <div>
+          <input id="infect_date" name="infect_date" type="date" />
+        </div>
+
+        <div class="title">COVID治療地點</div>
+        <div>
+          <select name="treatment_place" id="treatment_place">
+            <option></option>
+            <option value="1">醫院</option>
+            <option value="2">防疫旅館</option>
+            <option value="3">家裡</option>
+          </select>
+          <span class="desc"
+            >可能會有轉換，以主要位置為主，有住院經驗就選醫院</span
+          >
+        </div>
+
+        <div class="title">COVID治療期間<br />最嚴重的氧氣使用經驗</div>
+        <div>
+          <select name="oxygen_treatment" id="oxygen_treatment">
+            <option></option>
+            <option value="0">無</option>
+            <option value="1">鼻導管</option>
+            <option value="2">呼吸面罩</option>
+            <option value="3">高流量鼻導管</option>
+            <option value="4">氣管內管插管</option>
+          </select>
+          <span class="desc">以病人訴說為主</span>
+        </div>
+
+        <div class="title">COVID治療期間<br />是否入住加護病房</div>
+        <div>
+          <label class="radio" for="ICU_treatment1">
+            <input
+              type="radio"
+              name="ICU_treatment"
+              id="ICU_treatment1"
+              value="y"
+            />
+            是
+          </label>
+          <label class="radio" for="ICU_treatment0">
+            <input
+              type="radio"
+              name="ICU_treatment"
+              id="ICU_treatment0"
+              value="n"
+            />
+            否
+          </label>
+          <span class="desc">以病人訴說為主</span>
+        </div>
+
+        <div class="title">出院日期</div>
+        <div>
+          <input id="discharged_date" name="discharged_date" type="date" />
+        </div>
+
+        <div class="title">COVID之後<br />是否有因為COVID定期回診</div>
+        <div>
+          <label class="radio" for="revisit1">
+            <input type="radio" name="revisit" id="revisit1" value="y" />
+            是
+          </label>
+          <label class="radio" for="revisit0">
+            <input type="radio" name="revisit" id="revisit0" value="n" />
+            否
+          </label>
+          <span class="desc">因為COVID新增的才紀錄「是」</span>
+        </div>
+
+        <div class="title">如果有因COVID定期回診<br />請填回診科別</div>
+        <div>
+          <select name="revisit_division" id="revisit_division">
+            <option></option>
+            <option value="1">胸腔科</option>
+            <option value="2">感染科</option>
+            <option value="3">復健科</option>
+            <option value="4">神經科</option>
+            <option value="5">精神科</option>
+            <option value="6">其他</option>
+          </select>
+          <span class="desc">如看多科，COVID主要的為主</span>
+        </div>
+
+        <div class="title">特別門診處置</div>
+        <div>
+          <select name="deal_with" id="deal_with">
+            <option></option>
+            <option value="1">轉回原主要看診醫師</option>
+            <option value="2">轉介精神科</option>
+            <option value="3">轉介新的科別評估</option>
+            <option value="4">繼續留在特別門診</option>
+          </select>
+        </div>
+      </div>
+      <div class="btn-wrapper">
+        <button class="submit" type="button" onclick="send();">儲存變更</button>
+        <button type="reset" class="cancel">清除重填</button>
+      </div>
+    </form>
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+    <script>
+      // just for the demos, avoids form submit
+      jQuery.validator.setDefaults({
+        debug: true,
+        success: "valid",
+      });
+      $("#myform").validate({
+        rules: {
+          date: {
+            required: true,
+          },
+          name: {
+            required: true,
+          },
+          birth_date: {
+            required: true,
+          },
+          mail: {
+            required: true,
+          },
+          gender: {
+            required: true,
+          },
+          sex: {
+            required: true,
+          },
+          id_number: {
+            required: true,
+            minlength: 10,
+          },
+          infect_covid: {
+            required: true,
+          },
+          infect_date: {
+            required: true,
+          },
+          treatment_place: {
+            required: true,
+          },
+          oxygen_treatment: {
+            required: true,
+          },
+          ICU_treatment: {
+            required: true,
+          },
+          discharged_date: {
+            required: true,
+          },
+          revisit: {
+            required: true,
+          },
+          revisit_division: {
+            required: true,
+          },
+          deal_with: {
+            required: true,
+          }
+        },
+        messages: {
+          date: {
+            required: '必填',
+          },
+          name: {
+            required: '必填',
+          },
+          birth_date: {
+            required: '必填',
+          },
+          mail: {
+            required:'必填',
+            email:'Email格式不正確'
+          },
+          gender: {
+            required: '必填',
+          },
+          sex: {
+            required: '必填',
+          },
+          id_number: {
+            required: '必填',
+            minlength: '不得少於10位',
+          },
+          infect_covid: {
+            required: '必填',
+          },
+          infect_date: {
+            required: '必填',
+          },
+          treatment_place: {
+            required: '必填',
+          },
+          oxygen_treatment: {
+            required: '必填',
+          },
+          ICU_treatment: {
+            required: '必填',
+          },
+          discharged_date: {
+            required: '必填',
+          },
+          revisit: {
+            required: '必填',
+          },
+          revisit_division: {
+            required: '必填',
+          },
+          deal_with: {
+            required: '必填',
+          }
+
+        }
+
+      });
+      $(document).on("blur", "input", function () {
+        $(this).valid();
+      });
+    </script>
+  </body>
+</html>

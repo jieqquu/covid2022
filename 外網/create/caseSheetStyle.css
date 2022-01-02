@@ -1,0 +1,14 @@
+.labelVAlign{   
+    height: 40px;
+    font-size: 20px;
+    padding-top: 5px;
+}
+
+.required::after{
+    content: " *";
+    color: red;
+}
+h3{
+    background-color: #F3CD05;
+    font-weight: bold;
+}

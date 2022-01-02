@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="./readandUpdateStyle.css">
+    <title>Read</title>
+  </head>
+  <body>
+    <script type="text/javascript" src="./navread.js"></script>
+    <script type="text/javascript">
+        document.write(navbar)
+    </script>
+    <div class="row">
+        <aside id="left" class="col-4 ">
+            <div class="text">
+                <ul>
+                    <a href="#base" ><h5>基本資料</h5></a>
+                    <br>
+                    <br>
+                    <a href="#cov19"><h5 onclick="getData('covid')">Covid19相關資料</h5></a>
+                </ul>
+            </div>
+            <div class="col-5" align="right">
+                <button  id="update" class="btn btn-primary ">修改</button>
+            </div>
+            <div>
+                <input id="hisid" type="text">
+            </div>
+            
+        </aside>
+        <div id="context" class="col-8">
+            <div id="base">
+                <h3 class="mb-4" >基本資料</h3>
+                <!--姓名-->
+                <div class="row mb-4 ">
+                    <div id="labelName" class="col-5 g-0" align="right ">姓名</div>
+                    <div id="dataName" class="col-7">未填寫</div>
+                </div>
+                <!--就診日期-->
+                <div class="row mb-4 ">
+                    <div id="labelDateofExamination" class="col-5 g-0 " align="right">就診日期</div>
+                    <div id="dataDateofExamination"class="col-7">未填寫</div>
+                </div>
+                
+                <!--性別-->
+                <div class="row mb-4 ">
+                    <div id="labelGender" class="col-5 g-0 " align="right">性別</div>
+                    <div id="dataGender"class="col-7">未填寫</div>
+                </div>
+                <!--出生年月日-->
+                <div class="row mb-4 ">
+                    <div id="labelBirth" class="col-5 g-0 " align="right">出生年月日</div>
+                    <div id="dataBirth"class="col-7">未填寫</div>
+                </div>
+            
+                <!--信箱-->
+                <div class="row mb-4 ">
+                    <div id="labelEmail" class="col-5 g-0 " align="right">信箱</div>
+                    <div id="dataEmail"class="col-7">未填寫</div>
+                </div>
+                
+                <!--身分證-->
+                <!--做自動大寫第一個字-->
+                <div class="row mb-4 ">
+                    <div id="labelID" class="col-5 g-0 " align="right">身分證</div>
+                    <div id="dataID"class="col-7">未填寫</div>
+                </div>
+                
+            
+                <!--病歷號-->
+                <div class="row mb-4 ">
+                    <div id="labelMedicalHisID" class="col-5 g-0 " align="right">病歷號</div>
+                    <div id="dataMedicalHisID"class="col-7">未填寫</div>
+                </div>
+            
+            </div>
+            <div id="cov19">
+                <h3 class="mb-4" >Covid19相關資料</h3>
+                <!--是否曾為COVID確診個案-->
+                <div class="row mb-4 ">
+                    <div id="labelisConfirmedCase" class="col-5 g-0" align="right ">是否曾為COVID確診個案</div>
+                    <div id="dataisConfirmedCase" class="col-7">未填寫</div>
+                </div>
+        
+        
+                <!--確診日期-->
+                <div class="row mb-4 ">
+                    <div id="labelConfirmedDate" class="col-5 g-0" align="right ">確診日期</div>
+                    <div id="dataConfirmedDate" class="col-7">未填寫</div>
+                </div>
+        
+        
+                <!--COVID治療地點-->
+                <div class="row mb-4 ">
+                    <div id="labelTreatLocation" class="col-5 g-0" align="right ">COVID治療地點</div>
+                    <div id="dataTreatLocation" class="col-7">未填寫</div>
+                </div>
+        
+                <!--COVID治療期間 最嚴重的氧氣使用經驗-->
+        
+                <div class="row mb-4 ">
+                    <div id="labeloxygen" class="col-5 g-0" align="right ">
+                        <div>COVID治療期間</div>
+                        <div>最嚴重的氧氣使用經驗</div>
+                    </div>
+                    <div id="dataoxygen" class="col-7">未填寫</div>
+                </div>
+                
+                
+                <!--COVID治療期間是否入住加護病房-->
+        
+                <div class="row mb-4 ">
+                    <div id="labelICU" class="col-5 g-0" align="right ">
+                        <div>COVID治療期間</div>
+                        <div>是否入住加護病房</div>
+                    </div>
+                    <div id="dataICU" class="col-7">未填寫</div>
+                </div>
+        
+                
+                <!--出院日期-->
+                <div class="row mb-4 ">
+                    <div id="labeDischargeDate" class="col-5 g-0" align="right ">
+                        <div>出院日期/在家治療為解隔日期</div>    
+                    </div>
+                    <div id="dataDischargeDate" class="col-7">未填寫</div>
+                </div>
+        
+                <!--COVID之後是否有因為COVID定期回診-->
+        
+                <div class="row mb-4 ">
+                    <div id="labeFollowUpAppointmentn" class="col-5 g-0" align="right ">
+                        <div>是否有因為COVID定期回診</div>
+                    </div>
+                    <div id="dataFollowUpAppointment" class="col-7">未填寫</div>
+                </div>
+        
+                
+                
+                <!--如有因COVID定期回診請填回診科別-->
+        
+                <div class="row mb-4 ">
+                    <div id="labelDivision" class="col-5 g-0" align="right ">
+                        <div>定期回診科別</div>
+                    </div>
+                    <div id="dataDivision" class="col-7">未填寫</div>
+                </div>
+            </div> 
+        </div>
+    </div>
+    
+    <script src="./read.js"></script>
+    <script src="../dd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  </body>
+</html>

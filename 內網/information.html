@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>後新冠特別門診管理系統-收案紀錄表</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css"
+    />
+    <link rel="stylesheet" href="base.css" />
+    <link rel="stylesheet" href="info-trash.css" />
+    <style>
+      html {
+        position: relative;
+      }
+
+      /* record */
+      .record {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        justify-content: space-between;
+        width: 80%;
+        margin: 1.5rem auto 0 auto;
+      }
+
+      .record .title {
+        margin: 0 0 0.6rem 0;
+        padding-left: 1rem;
+      }
+
+      .not-completed .title {
+        color: #f78c65;
+      }
+
+      .new-data {
+        position: absolute;
+        bottom: 48px;
+        right: 16px;
+        width: 60px;
+        height: 60px;
+        border: 2px solid black;
+        border-radius: 100%;
+        cursor: pointer;
+        filter: opacity(0.6);
+      }
+
+      .new-data:hover {
+        filter: opacity(1);
+      }
+
+      .new-data::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 4px;
+        height: 36px;
+        background-color: black;
+      }
+      .new-data::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(90deg);
+        width: 4px;
+        height: 36px;
+        background-color: black;
+      }
+    </style>
+  </head>
+  <div class="new-data" onclick="window.location.href='./detail.html'"></div>
+  <body class="container">
+    <header class="my-header container">
+      <div>
+        <h1 class="title">後新冠特別門診管理系統</h1>
+      </div>
+      <nav style="margin-left: auto">
+        <a href="select.html">首頁</a>
+        <a href="trash.html">垃圾桶</a>
+        <a href="/logout.html">登出</a>
+      </nav>
+    </header>
+
+    <div class="search-bar">
+      <input
+        type="text"
+        placeholder="可搜尋病歷號、身份證字號、姓名、就診日期"
+      />
+    </div>
+
+    <div class="record">
+      <div class="not-completed">
+        <h2 class="title">應該填寫完成卻尚未填寫完成</h2>
+        <table
+          id="not-completed-table"
+          class="display my-data-table"
+          width="100%"
+        ></table>
+      </div>
+      <div class="today-patient">
+        <h2 class="title">今日診間病患</h2>
+        <table
+          id="today-patient-table"
+          class="display my-data-table"
+          width="100%"
+        ></table>
+      </div>
+    </div>
+
+    <script src="info-trash.js"></script>
+    <script>
+      function genTableFuncHTML(data, type, row, meta) {
+        return `
+          <div class='func' data-pid='${row[0]}'>
+            <div class='item'>
+              <img src="./img/eye.svg" width="22" height="22"/>
+              <button class='detail'>查看</button>
+            </div>
+            <div class='item'>
+              <img src="./img/edit.svg" width="18" height="18"/>
+              <button class='edit'>修改</button>
+            </div>
+            <div class='item'>
+              <img src="./img/remove.svg" width="18" height="18"/>
+              <button class='remove'>刪除</button>
+            </div>
+          </div>
+        `;
+      }
+
+      $(document).ready(function () {
+        $("#not-completed-table").DataTable({
+          data,
+          columns: [
+            { title: "病歷號" },
+            { title: "姓名" },
+            { title: "就診日期" },
+            {
+              title: "註記",
+              orderable: false,
+            },
+            {
+              title: "功能",
+              render: genTableFuncHTML,
+              orderable: false,
+            },
+          ],
+          // searching: false,
+          paging: false,
+          info: false,
+        });
+
+        $("#today-patient-table").DataTable({
+          data,
+          columns: [
+            { title: "病歷號" },
+            { title: "姓名" },
+            { title: "就診日期" },
+            {
+              title: "註記",
+              orderable: false,
+            },
+            {
+              title: "功能",
+              render: genTableFuncHTML,
+              orderable: false,
+            },
+          ],
+          // searching: false,
+          paging: false,
+          info: false,
+        });
+      });
+    </script>
+  </body>
+</html>

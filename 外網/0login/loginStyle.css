@@ -1,0 +1,25 @@
+.labelVAlign{   
+    height: 40px;
+    font-size: 20px;
+    padding-top: 5px;
+}
+
+.required::after{
+    content: " *";
+    color: red;
+}
+h3{
+    background-color: #F3CD05;
+    font-weight: bold;
+}
+.mt-8{
+    margin-top: 100px;
+}
+
+input.invalid{
+    border:2px solid red;
+}
+#helpBlock{
+    display: none;
+    color: red;
+}

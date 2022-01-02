@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>後新冠特別門診管理系統</title>
+    <link
+      rel="stylesheet"
+      href="https://jqueryvalidation.org/files/demo/site-demos.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="http://static.runoob.com/assets/jquery-validation-1.14.0/lib/jquery.js"></script>
+    <script src="http://static.runoob.com/assets/jquery-validation-1.14.0/dist/jquery.validate.min.js"></script>
+
+    <link rel="stylesheet" href="login.css" />
+
+    <style>
+      .box{
+        width: 300px;
+        height: 150px;
+        
+        margin: auto;
+        display: grid;
+        justify-content: center;
+        align-items: center; 
+      }
+      .content{
+        width: auto;
+        height: auto;
+       
+      }
+
+      .box2{
+        width: 90px;
+        height: 50px;
+        
+        margin: auto;
+        display: grid;
+        justify-content: center;
+        align-items: center; 
+      }
+      .sub{
+        width: auto;
+        
+      }
+
+
+
+    </style>
+  </head>
+
+  <header class="my-header container">
+    <div>
+      <h1 class="title">後新冠特別門診管理系統</h1>
+    </div>
+  </header>
+
+  <body>
+    <main>
+      <form>
+        <div class="box">
+          <div class="content">
+                   
+            <div id="account">
+              <br /><br />
+              <label for="account">帳號</label>
+              <input
+                type="text"
+                name="account"
+                id="account"
+                aria-describedby="account"
+                required
+              />
+            
+          </div>
+
+          
+            <div id="password">
+              <label for="passwordinput">密碼</label>
+              <input
+                type="password"
+                name="passwordinput"
+                id="passwordinput"
+                required
+              />
+            
+          </div>
+
+        </div>
+        </div>
+
+        <div class="box2">
+          <div class="sub">
+            <button type="submit" class="btn btn-primary" onclick="window.location.href='select.html'">登入系統</button>
+          </div>
+        </div>
+      </form>
+
+      <!-- <script>
+        jQuery.validator.setDefaults({
+          debug: true,
+          success: "valid",
+        });
+        $("#myform").validate({
+          rules: {
+            emailinput: {
+              required: true,
+            },
+            passwordinput: {
+              required: true,
+            },
+          },
+        });
+        $(document).on("blur", "input", function () {
+          $(this).valid();
+        });
+      </script> -->
+    </main>
+  </body>
+</html>

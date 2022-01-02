@@ -1,0 +1,128 @@
+:root {
+  --default-bg-color: #f4f4ea;
+}
+
+html {
+  padding: 3rem 1rem;
+  box-sizing: border-box;
+  background-color: var(--default-bg-color);
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+button {
+  font-size: 16px;
+}
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+}
+
+@media (min-width: 640px) {
+  .container {
+    max-width: 640px;
+  }
+}
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+}
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1024px;
+  }
+}
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+  }
+}
+
+h2.title {
+  font-size: 20px;
+  font-weight: 400;
+}
+
+input[type="text"],
+select {
+  min-width: 100px;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  background-clip: padding-box;
+  border: 2px solid #cacaca;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+input[type="text"]:focus,
+input[type="text"]:hover,
+select:focus,
+select:hover {
+  border: 2px solid black;
+}
+
+input[type="radio"] {
+  width: 1rem;
+  height: 1rem;
+}
+
+input:checked[type="radio"] {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='2' fill='%23fff'/%3e%3c/svg%3e");
+}
+
+label.radio {
+  display: inline-flex;
+  align-items: center;
+}
+
+select {
+  background-color: #fff;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 16px 12px;
+}
+
+/* header css */
+.my-header {
+  display: flex;
+  align-items: flex-end;
+  line-height: 1;
+  padding: 0 0 12px 10px;
+  border-bottom: 1px solid black;
+}
+
+.my-header .title {
+  margin: 0;
+  color: #5e574d;
+}
+
+.my-header nav a {
+  color: #9b978d;
+  text-decoration: none;
+  padding: 0 6px;
+}
+
+.my-header nav a:not(:first-child) {
+  border-left: 1px solid #9b978d;
+}
+
+.my-header nav a:hover {
+  color: #1b1b1a;
+}
+
+nav {
+  margin-left: auto;
+}
